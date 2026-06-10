@@ -1,0 +1,360 @@
+:root {
+    --cream: #FFF8F3;
+    --beige: #F5E6D3;
+    --blush-pink: #E8C5D5;
+    --chocolate: #6B4423;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: var(--chocolate);
+    scroll-behavior: smooth;
+}
+
+.font-playfair {
+    font-family: 'Playfair Display', serif;
+}
+
+.font-lato {
+    font-family: 'Lato', sans-serif;
+}
+
+/* Color Classes */
+.bg-cream {
+    background-color: var(--cream);
+}
+
+.bg-beige {
+    background-color: var(--beige);
+}
+
+.bg-blush-pink {
+    background-color: var(--blush-pink);
+}
+
+.bg-chocolate {
+    background-color: var(--chocolate);
+}
+
+.text-cream {
+    color: var(--cream);
+}
+
+.text-beige {
+    color: var(--beige);
+}
+
+.text-blush-pink {
+    color: var(--blush-pink);
+}
+
+.text-chocolate {
+    color: var(--chocolate);
+}
+
+.border-cream {
+    border-color: var(--cream);
+}
+
+.border-beige {
+    border-color: var(--beige);
+}
+
+.border-blush-pink {
+    border-color: var(--blush-pink);
+}
+
+.border-chocolate {
+    border-color: var(--chocolate);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes blob {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+}
+
+@keyframes bounceSlow {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-down {
+    animation: fadeInDown 0.8s ease-out forwards;
+}
+
+.animate-blob {
+    animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animate-bounce-slow {
+    animation: bounceSlow 2s infinite;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+}
+
+/* Navigation Styles */
+#navbar {
+    background-color: rgba(255, 248, 243, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(232, 197, 213, 0.1);
+}
+
+#navbar.scrolled {
+    box-shadow: 0 10px 30px rgba(107, 68, 35, 0.1);
+}
+
+.nav-link {
+    position: relative;
+    font-weight: 500;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--blush-pink), var(--chocolate));
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Gallery Filter Styles */
+.gallery-filter {
+    background-color: var(--cream);
+    color: var(--chocolate);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.gallery-filter:hover,
+.gallery-filter.active {
+    background: linear-gradient(to right, var(--blush-pink), var(--chocolate));
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Gallery Items */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+    border-radius: 1.5rem;
+    background: linear-gradient(135deg, var(--cream), var(--beige));
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(107, 68, 35, 0.2);
+}
+
+.gallery-item-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(107, 68, 35, 0.8), transparent);
+    color: white;
+    padding: 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-item-label {
+    transform: translateY(0);
+}
+
+/* FAQ Styles */
+.faq-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-button:hover {
+    background-color: rgba(232, 197, 213, 0.1);
+}
+
+.faq-button.active span:last-child {
+    transform: rotate(45deg);
+}
+
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-content.show {
+    max-height: 500px;
+}
+
+/* Form Styles */
+.form-group input,
+.form-group select,
+textarea {
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+textarea:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(232, 197, 213, 0.3);
+}
+
+/* Dropzone Styles */
+#dropzone {
+    transition: all 0.3s ease;
+}
+
+#dropzone.dragover {
+    background-color: rgba(232, 197, 213, 0.2);
+    border-color: var(--chocolate);
+}
+
+.file-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(to right, var(--blush-pink), var(--chocolate));
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+}
+
+.file-tag button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: opacity 0.2s ease;
+}
+
+.file-tag button:hover {
+    opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hidden {
+        display: none;
+    }
+
+    section {
+        padding: 3rem 0;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Loading Animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba(107, 68, 35, 0.1);
+    border-top-color: var(--blush-pink);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+/* Utility Classes */
+.shadow-lg {
+    box-shadow: 0 10px 25px rgba(107, 68, 35, 0.1);
+}
+
+.shadow-2xl {
+    box-shadow: 0 25px 50px rgba(107, 68, 35, 0.15);
+}
+
+/* Print Styles */
+@media print {
+    #navbar,
+    #whatsapp-btn,
+    footer {
+        display: none;
+    }
+}
